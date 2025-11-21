@@ -12,9 +12,9 @@ from api.views import TableInOrganization
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="foodlist.menu API",
+        title="OsonMenyu API",
         default_version='v1',
-        description="Foodlist.menu is a platform that allows users to view online menus of different eateries and restaurants.",
+        description="OsonMenyu is a platform that allows users to view online menus of different eateries and restaurants.",
         contact=openapi.Contact(email="asadbekmuxtorov2@gmail.com"),
         license=openapi.License(name="MIT License"),
     ),

@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  web:
+    build: .
+    # ...boshqa konfiguratsiyalar
+    env_file:
+      - .env  # Bu fayldan muhit o'zgaruvchilarini yuklaydi
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      DJANGO_SUPERUSER_USERNAME: "admin"
+      DJANGO_SUPERUSER_EMAIL: "rakhmatulloshermatov@gmail.com"
+      DJANGO_SUPERUSER_PASSWORD: "adminR2001@"  # Siz xohlagan parol
+    command: >
+      sh -c "
+      python manage.py migrate --noinput &&
+      python manage.py createsuperuser --noinput || true &&
+      python manage.py runserver 0.0.0.0:8000
+      "
